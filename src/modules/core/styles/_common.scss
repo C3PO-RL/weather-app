@@ -1,0 +1,52 @@
+@use "src/styles/constants";
+@use "sass:math";
+
+$default-row-height: 20px;
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@mixin matchParent($width: 100%) {
+  position: absolute;
+
+  left: 0;
+  width: $width;
+  top: 0;
+  bottom: 0;
+}
+
+@mixin disable {
+  pointer-events: none;
+
+  > * {
+    opacity: 0.25;
+  }
+}
+
+@mixin loader($size: 60px) {
+  @include disable;
+
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: $size;
+    width: $size;
+    margin: math.div(-$size, 2) 0 0 math.div(-$size, 2);
+    border-radius: math.div($size, 2);
+    box-sizing: border-box;
+    border: 7px solid $colors-grid-separators;
+    border-top-color: $colors-primary;
+    animation: spin infinite linear 1s;
+  }
+}
