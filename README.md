@@ -14,36 +14,36 @@ To run the app, follow these steps:
 1. **Ensure Node.js version 20.9.0 is installed.**
 2. **Clone the repository:**
 
-  ```sh
-  git clone <repository-url>
-  cd weather-app
-  ```
+```sh
+git clone <repository-url>
+cd weather-app
+```
 
 3. **Install dependencies using pnpm:**
 
-  ```sh
-  pnpm install
-  ```
+```sh
+pnpm install
+```
 
 4. **Rename the `.env.template` file to `.env` and add the `VITE_APP_RAPIDAPI_WEATHER_KEY` environment variable:**
 
-  ```sh
-  mv .env.template .env
-  ```
+```sh
+mv .env.template .env
+```
 
-  Obtain the `VITE_APP_RAPIDAPI_WEATHER_KEY` from [RapidAPI WeatherAPI](https://rapidapi.com/weatherapi/api/weatherapi-com).
+Obtain the `VITE_APP_RAPIDAPI_WEATHER_KEY` from [RapidAPI WeatherAPI](https://rapidapi.com/weatherapi/api/weatherapi-com).
 
 5. **For development environment, run:**
 
-  ```sh
-  pnpm dev
-  ```
+```sh
+pnpm dev
+```
 
 6. **For testing, run:**
 
-  ```sh
-  pnpm test
-  ```
+```sh
+pnpm test
+```
 
 ## Expanding the ESLint configuration
 
@@ -54,13 +54,13 @@ If you are developing a production application, we recommend updating the config
 ```js
 export default tseslint.config({
   languageOptions: {
-   // other options...
-   parserOptions: {
-    project: ['./tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: import.meta.dirname,
-   },
+    // other options...
+    parserOptions: {
+      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
+      tsconfigRootDir: import.meta.dirname,
+    },
   },
-})
+});
 ```
 
 - Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
@@ -69,25 +69,24 @@ export default tseslint.config({
 
 ```js
 // eslint.config.js
-import react from 'eslint-plugin-react'
+import react from "eslint-plugin-react";
 
 export default tseslint.config({
   // Set the react version
-  settings: { react: { version: '18.3' } },
+  settings: { react: { version: "18.3" } },
   plugins: {
-   // Add the react plugin
-   react,
+    // Add the react plugin
+    react,
   },
   rules: {
-   // other rules...
-   // Enable its recommended rules
-   ...react.configs.recommended.rules,
-   ...react.configs['jsx-runtime'].rules,
+    // other rules...
+    // Enable its recommended rules
+    ...react.configs.recommended.rules,
+    ...react.configs["jsx-runtime"].rules,
   },
-})
+});
 ```
 
 ## Deployment
 
-The app is deployed on Vercel and can be accessed at: [https://weather-app.vercel.app](https://weather-app.vercel.app)
-
+The app is deployed on Vercel and can be accessed at: [https://weather-app-mu-liart-79.vercel.app/](https://weather-app-mu-liart-79.vercel.app/)
